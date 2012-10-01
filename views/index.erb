@@ -1,1 +1,7 @@
-Hello, Ruby!
+<form action="/show/<%=key%>" method="get">
+  <% labels.each do |label| %>
+    <%= label %>: <input type="text" name="words[]"><br>
+  <% end %>
+  <input type="submit" value="Submit">
+</form>
+

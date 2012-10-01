@@ -16,13 +16,18 @@ require 'phrase'
 
 configure do
   # Hint: load phrases from data/phrases.json using the Phrase class
+  $phrases = Phrase.load('data/phrases.json')
 end
 
 get '/' do
   # Hint: pick a random phrase and display the form
-  erb :index
+  key = $phrases.keys[rand($phrases.length)]
+  phrase = $phrases[key]
+  erb :index, :locals => {:labels => phrase.labels, :key => key}
 end
 
 get '/show/:phrase' do
   # Hint: look up the phrase, then populate it with the words from the form
+  sentence = $phrases[params[:phrase]].format(params['words'])
+  erb :result, :locals => {:sentence => sentence} 
 end
