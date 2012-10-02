@@ -5,9 +5,9 @@
 # Author: <your name + email here>
 ###
 
+require 'rubygems'
 require 'json'
 
-require 'rubygems'
 require 'sinatra'
 
 $LOAD_PATH << File.dirname(__FILE__) + "/lib"
